@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: ratchet
-# Recipe:: default
+# Recipe:: ratchet
 #
 # Copyright (C) 2015 Ryan Hass
 #
@@ -17,5 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe 'apt' if platform_family?('debian')
-include_recipe 'ratchet::ratchet'
+include_recipe 'ratchet::system_deps'
+include_recipe 'ratchet::nodejs'
+
+nodejs_npm 'ratchet' do
+  url 'git://github.com/rhass/ratchet'
+  json true
+end
