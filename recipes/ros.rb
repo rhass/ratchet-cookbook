@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: ratchet
-# Recipe:: ratchet
+# Recipe:: ros
 #
 # Copyright (C) 2015 Ryan Hass
 #
@@ -17,10 +17,15 @@
 # limitations under the License.
 #
 
-include_recipe 'ratchet::system_deps'
-include_recipe 'ratchet::nodejs'
-include_recipe 'ratchet::ros'
 
-nodejs_npm 'ratchet' do
-  url 'github rhass/ratchet'
+
+ros node['ratchet']['ros']['release'] do
+  action :install
 end
+
+catkin '/opt/catkin_ws' do
+  release node['ratchet']['ros']['release']
+  action :create
+end
+
+include_recipe 'ratchet::ros_trex_i2c'
