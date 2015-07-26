@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: ratchet
-# Recipe:: ratchet
+# Recipe:: ros_trex_i2c
 #
 # Copyright (C) 2015 Ryan Hass
 #
@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe 'ratchet::system_deps'
-include_recipe 'ratchet::nodejs'
-include_recipe 'ratchet::ros_trex_i2c'
-
-nodejs_npm 'ratchet' do
-  url 'github rhass/ratchet'
+catkin_package 'ros_trex_i2c' do
+  source_uri 'https://github.com/rhass/ros_trex_i2c.git'
 end
