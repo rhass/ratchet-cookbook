@@ -19,4 +19,5 @@
 
 catkin_package 'ros_trex_i2c' do
   source_uri 'https://github.com/rhass/ros_trex_i2c.git'
+  revision 'master'
 end
