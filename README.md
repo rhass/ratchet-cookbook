@@ -6,8 +6,15 @@ Cookbook for installing and configuring Ratchet the Robot.
 
 - Ubuntu
 
-
 ## Usage
+
+### ARM Based Pre-Requisite Install
+Chef currently does not have an omnibus package for ARM platforms. To work
+around this issue one must first install Ruby from source using rbenv, then
+install Chef as a gem.
+
+The following gist does the job:
+https://gist.github.com/blacktm/8302741
 
 ### ratchet::default
 
